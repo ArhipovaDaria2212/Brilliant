@@ -1,0 +1,83 @@
+// @use "./../../style/style.scss";
+@use "./../../style/variables.scss";
+
+.add_info {
+    padding: 20px 15px 15px;
+    max-width: 935px;
+    margin: 0 auto;
+
+    .status_bar {
+        width: 100%;
+        height: 4px;
+        background-color: #E5E5E5;
+        margin: 0 0 30px;
+
+        .progress {
+            width: 30%;
+            height: 100%;
+            background-color: #B088FF;
+        }
+    }
+
+    .title {
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 29px;
+        font-weight: 700;
+        line-height: 48px;
+        padding: 0 0 16px;
+    }
+
+    .subtitle {
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        padding: 0 0 52px;
+    }
+
+    .form {
+        @extend %flex-column;
+        gap: 28px;
+        max-width: 570px;
+        margin: 0 auto;
+
+        .form__inner {
+            @extend %flex-column;
+            gap: 12px;
+
+            .input {
+                padding: 22px 25px;
+                min-width: 570px;
+
+                font-size: 16px;
+                line-height: 20.8px;
+
+                color: #1F1F1F;
+                border-radius: 6px;
+                border: 1px solid #E6E6E6;
+
+                .input--grey {
+                    color: #c2c2c2;
+                }
+
+                .form__img {
+                    padding: 0 22px 0 0;
+                    max-width: 21px;
+                    min-height: 21px;
+                }
+            }
+        }
+
+        .btn {
+            padding: 8px 50px;
+            color: #fff;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 17px;
+            line-height: 32px;
+            background: rgba(176, 136, 255, 0.50);
+        }
+    }
+}

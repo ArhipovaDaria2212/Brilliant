@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500&display=swap');
+
+$text-main: #40003E;
+$text-secondary: #590056;
+$orange: #FFA766;
+$blue: #441F79;
+$white-background: #fff;
+
+%flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+%flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+%transition {
+    transition: all 0.5s ease-out;
+}

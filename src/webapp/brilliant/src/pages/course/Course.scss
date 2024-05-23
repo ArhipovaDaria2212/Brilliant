@@ -1,0 +1,136 @@
+@use "./../../style/variables.scss";
+@use "./../../style/style.scss";
+
+.course {
+
+  padding: 40px 55px;
+
+  .info {
+    @extend %flex-row;
+
+  }
+
+  &__info {
+    @extend %flex-row;
+    gap: 10px;
+
+    max-width: 45%;
+
+    &--img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
+    &__info {
+
+      color: #40003E;
+      margin-right: auto;
+      padding: 0 0 10px;
+      //max-width: 310px;
+
+      .title {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24px;
+        text-transform: uppercase;
+        padding-bottom: 14px;
+      }
+    }
+
+    .course__info__text {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 12px;
+    }
+
+    .progress__wrapper {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 1px solid #40003E;
+    }
+
+    .course_item__progress {
+
+      @extend %flex-row;
+      gap: 10px;
+
+      .progress {
+        display: block;
+        padding-left: 7px;
+        transform: translateX(10px);
+        transform: translateY(15px);
+      }
+
+      .favotite {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+
+  .user__info {
+    min-width: 45%;
+  }
+
+  &__main {
+    padding: 28px 0 0;
+
+    display: flex;
+    gap: 120px;
+  }
+
+  &__modules__title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 75%;
+
+    padding: 50px 0 40px;
+  }
+
+  &__modules {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    max-height: 70vh;
+    min-width: 700px;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+
+  &__sign_up {
+    border-radius: 10px;
+    width: 275px;
+    height: 36px;
+
+    box-shadow: 6px 6px 0 0 rgba(0, 0, 0, 0.15);
+    background: #40003e;
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+    text-align: center;
+    color: #fff;
+  }
+
+  &__lessons {
+
+    &__title {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 75%;
+      padding: 0px 0 100px;
+    }
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 70px;
+    }
+  }
+}

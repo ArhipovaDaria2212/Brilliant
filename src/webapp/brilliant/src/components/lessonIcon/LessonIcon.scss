@@ -1,0 +1,54 @@
+@use "./../../style/variables.scss";
+@use "./../../style/style.scss";
+
+.lesson {
+  position: relative;
+
+  &.active {
+    //transform: scale(1.5);
+    position: relative;
+    //margin: 0 30px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 140%;
+      height: 100%;
+      display: block;
+      top: 15%;
+      left: -20%;
+      border: solid 5px #b088ff;
+      border-radius: 20%;
+      z-index: -1;
+    }
+
+    &::before {
+      content: "";
+      background-color: transparent;
+      transition: all .5s;
+    }
+
+    &:hover::before {
+      content: "start";
+      padding: 20% 0 0;
+
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 187%;
+      text-align: center;
+      color: #fff;
+
+      position: absolute;
+      width: 130%;
+      height: 70%;
+      display: block;
+      top: -70%;
+      left: -15%;
+      background-color: #b088ff;
+      border-radius: 6px;
+      z-index: -1;
+
+      transition: all .5s;
+    }
+  }
+}

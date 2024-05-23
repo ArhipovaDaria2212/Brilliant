@@ -1,0 +1,52 @@
+@use "./../../style/variables";
+@use "./../../style/style.scss";
+
+.header {
+    margin: 0 auto;
+
+    .header__inner {
+        padding: 24px 0 0;
+        @extend %flex-row;
+
+        .logo {
+            width: 190px;
+            height: 40px;
+        }
+
+        .header__menu {
+            @extend %flex-row;
+            min-width: 400px;
+
+            .header__menu__item {
+                color: #441F79;
+
+                &:hover::after {
+                    transition: all 0.2s;
+                    width: 100%;
+                }
+
+                &::after {
+                    content: "";
+                    display: block;
+                    background-color: #441F79;
+                    width: 0%;
+                    height: 2px;
+                    transition: all 0.2s;
+                }
+
+                // .menu__item--link {
+                //   width: 117px;
+                // }
+            }
+        }
+
+        .header__login {
+            @extend %flex-row;
+            gap: 15px;
+
+            // .login__item{
+            //   width: 117px;
+            // }
+        }
+    }
+}

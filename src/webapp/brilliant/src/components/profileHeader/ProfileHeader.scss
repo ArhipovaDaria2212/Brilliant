@@ -1,0 +1,6 @@
+@use "./../../style/variables.scss";
+@use "./../../style/style.scss";
+
+.profile__header {
+  @extend %flex-row;
+}

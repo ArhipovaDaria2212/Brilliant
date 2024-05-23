@@ -1,0 +1,80 @@
+@use "./../../style/variables.scss";
+@use "./../../style/style.scss";
+
+.menu {
+    background: #F7F3FF;
+    box-sizing: border-box;
+    padding: 35px 10px 35px 35px;
+    min-width: 320px;
+    height: 100vh;
+
+    .logo {
+        padding: 0 0 75px 0;
+        max-width: 190px;
+        max-height: 40px;
+    }
+
+    &__list {
+        @extend %flex-column;
+        align-items: flex-start;
+        gap: 38px;
+        
+        &__item--p {
+            display: inline-block;
+            padding: 9px;
+            color: rgba(106, 84, 106, 0.50);
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 24px;
+
+            transition: all .5s;
+        }
+
+        &__item--img {
+            filter: contrast(0%);
+            width: 40px;
+            height: 40px;
+
+            transition: all .5s;
+        }
+
+        &__item--link {
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 10px;
+                height: 38px;
+                border-radius: 0px 11px 11px 0px;
+                background-color: transparent;
+                top: 0;
+                left: -35px;
+                transition: all 1s;
+            }
+        }
+
+        &__item--link.active {
+            position: relative;
+            transition: all .5s;
+
+            &::before {
+                background-color: #361961;
+                transition: all .5s;
+            }
+
+            .menu__list__item--img {
+                filter: contrast(150%);
+
+                transition: all .5s;
+            }
+
+            .menu__list__item--p {
+                color: #40003E;
+
+                transition: all .5s;
+            }
+        }
+
+
+    }
+}

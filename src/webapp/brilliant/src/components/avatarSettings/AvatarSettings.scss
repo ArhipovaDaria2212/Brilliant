@@ -1,0 +1,21 @@
+@use "./../../style/variables.scss";
+@use "./../../style/style.scss";
+
+.settings {
+
+
+  &__save {
+    border-radius: 10px;
+    width: 275px;
+    height: 36px;
+
+    box-shadow: 6px 6px 0 0 rgba(0, 0, 0, 0.15);
+    background: #40003e;
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+    text-align: center;
+    color: #fff;
+  }
+}

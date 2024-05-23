@@ -1,0 +1,75 @@
+@use "../../style/variables.scss";
+@use "../../style/style.scss";
+
+.authorization {
+
+    @extend %flex-row;
+    gap: 35px;
+    padding: 15px;
+    max-width: 1300px;
+    margin: 0 auto;
+
+    .auth__img {
+        max-width: 610px;
+        min-height: 718px;
+    }
+
+    .title {
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 48px;
+        max-width: 645px;
+        padding: 0 0 120px;
+    }
+
+    .form {
+        @extend %flex-column;
+        gap: 12px;
+        align-items: center;
+        padding: 0 0 51px;
+
+        .input {
+            box-sizing: border-box;
+            min-width: 455px;
+            padding: 9px 15px;
+            border-radius: 6px;
+            border: 1px solid #E7C7FF;
+        }
+
+        .btn {
+            box-sizing: border-box;
+            text-align: center;
+            min-width: 455px;
+            padding: 9px 15px;
+            border-radius: 6px;
+            background: #E2ABFF;
+            color: #FFF;
+            font-weight: 600;
+        }
+
+        .privacy {
+            color: #535353;
+            text-align: center;
+            font-family: Montserrat;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 20px;
+        }
+    }
+
+    .to_login {
+        color: #535353;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 21.333px;
+    }
+
+    .to_login--link {
+        color: #E2ABFF;
+    }
+
+}

@@ -1,0 +1,54 @@
+@use "./../../style/variables.scss";
+@use "./../../style/style.scss";
+
+.module {
+  @extend %flex-row;
+  justify-content: left;
+
+  box-sizing: border-box;
+  //max-width: 40%;
+  padding: 20px;
+  margin: 0 5px;
+
+  border-radius: 10px;
+  border: 2px solid #850882;
+
+  &__num {
+    font-weight: 400;
+    font-size: 48px;
+    text-align: center;
+  }
+
+  &__info {
+    padding: 0 30px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    text-transform: uppercase;
+    padding: 0 0 10px;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+  }
+
+  &__progress {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 1px solid #4ae30e;
+    color: #4ae30e;
+    margin-left: auto;
+
+    &__inner {
+      display: block;
+      padding-left: 4px;
+      transform: translateY(15px);
+    }
+  }
+}

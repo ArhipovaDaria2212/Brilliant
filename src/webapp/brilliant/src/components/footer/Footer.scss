@@ -1,0 +1,125 @@
+@use "./../../style/variables";
+@use "./../../style/style.scss";
+
+.footer {
+    background: #441F79;
+    padding: 30px 0 40px;
+    color: #fff;
+
+    &__menu {
+        padding: 0 0 55px;
+
+        &--nav {
+            gap: 52px;
+        }
+
+        &--networks {
+            gap: 34px;
+        }
+    }
+}
+
+.footer__menu,
+.footer__menu--nav,
+.footer__menu--networks,
+.footer__info {
+    @extend %flex-row;
+    align-items: center;
+}
+
+.footer__menu--btn.btn--fill {
+    background-color: #fff;
+    color: #441F79 !important;
+}
+
+.footer__menu--btn.btn--outline {
+    border-color: #fff;
+    color: #fff !important;
+}
+
+.footer__info {
+    font-size: 24px;
+    font-weight: 300;
+    align-items: flex-start;
+
+    & .footer__info__item--partners {
+        padding: 40px 0 0;
+        display: flex;
+        gap: 15px;
+
+        & .footer__info__item--img:nth-child(2) {
+            transform: translateY(-7px);
+        }
+    }
+}
+
+.footer__info__item {
+    max-width: 530px;
+}
+
+.footer__info__item--p {
+    padding: 0 0 5px;
+
+    & a:visited {
+        color: #fff;
+        text-decoration: underline;
+    }
+}
+
+.footer__info__item--form {
+    text-align: right;
+
+    @media (max-width:1240px) {
+        max-width: 380px;
+        font-size: 14px;
+    }
+
+    @media (max-width:1100px) {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+.email {
+    position: relative;
+    @extend %flex-row;
+    padding: 8px 8px 8px 15px;
+    margin-left: 57px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #2F0072;
+    margin: 20px 0 0;
+
+    & button {
+        background-color: #441F79;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+}
+
+.checkbox {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 0;
+    right: 0;
+
+    & input {
+        width: 20px;
+        height: 20px;
+    }
+
+    & label {
+        font-size: 11px;
+        font-weight: 400;
+    }
+}
+
+.copyright {
+    text-align: center;
+    padding: 64px 0 0;
+    font-size: 12px;
+    font-weight: 300;
+}

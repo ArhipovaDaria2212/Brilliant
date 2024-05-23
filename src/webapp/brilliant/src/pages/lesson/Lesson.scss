@@ -1,0 +1,82 @@
+.lesson_page {
+
+  &__to_profile {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
+
+  &__menu {
+    justify-content: space-around;
+
+    position: fixed;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    padding: 30px;
+    border-bottom: solid #f8e8f8 1px;
+  }
+
+  &__menu__lessons {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 25px;
+  }
+
+  &__main {
+    max-width: 80vw;
+    margin: 130px auto;
+    display: flex;
+    align-items: center;
+    gap: 43px;
+  }
+
+  &__prev,
+  &__next {
+    border: 2px solid #b088ff;
+    border-radius: 12px;
+    min-width: 49px;
+    height: 43px;
+    background-image: url("./../../assets/icons/arrows/1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    top: 50vh;
+  }
+
+  &__prev {
+    left: 5vw;
+  }
+
+  &__next {
+    transform: rotate(180deg);
+    right: 5vw;
+  }
+
+  h2.lesson_page__text {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 75%;
+    text-align: left;
+
+    margin: 0 0 28px;
+  }
+
+  p.lesson_page__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 172%;
+    text-align: justify;
+
+    margin: 25px 0;
+  }
+
+  &__text--wrapper {
+    text-align: center;
+  }
+
+  img.lesson_page__text {
+
+  }
+}

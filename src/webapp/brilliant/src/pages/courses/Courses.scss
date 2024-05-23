@@ -1,0 +1,61 @@
+@use "./../../style/variables.scss";
+@use "./../../style/style.scss";
+
+
+.courses {
+
+  padding: 50px 0 0 ;
+
+  &__main {
+    margin: 22px auto 0;
+    width: 100%;
+    padding: 0 50px;
+    display: block;
+  }
+
+  &__title {
+    color:#40003E;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  &__filters__buttons {
+
+    padding: 20px 0 0 0 ;
+
+    &--btn {
+      margin: 0 10px 0 0 ;
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 100%;
+      color: #d0cece;
+      position: relative;
+
+      &.active {
+        color:#40003E;
+        transition: color .5s;
+      }
+    }
+  }
+
+  &__items {
+    margin: 20px 0 0 0;
+
+    @extend %flex-row;
+    //align-items: ;
+
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    max-height: 75vh;
+    overflow: scroll;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+}

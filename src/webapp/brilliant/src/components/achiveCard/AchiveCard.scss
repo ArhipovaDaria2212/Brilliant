@@ -1,0 +1,62 @@
+@use "./../../style/variables.scss";
+@use "./../../style/style.scss";
+
+.achive_card {
+    margin: 0 5px;
+    box-sizing: border-box;
+
+    @extend %flex-column;
+    justify-content: space-between;
+
+    max-width: 230px;
+    min-height: 340px;
+
+    text-align: center;
+    color: #B088FF;
+
+    border-radius: 10px;
+    border: 3.5px solid #B088FF;
+
+    padding: 15px 20px 45px;
+    overflow: hidden;
+
+    &--img {
+        max-width: 100px;
+        max-height: 110px;
+        padding-bottom: 20px;
+    }
+
+    &__info {
+        
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 24px;
+        color: #B088FF;
+        padding: 0 0 15px;
+    }
+
+    .text {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 16px;
+    }
+
+    .count {
+        align-self: flex-start;
+    }
+}
+
+.open {
+    background-color: #B088FF;
+    background-image: url(./../../assets/achives/background.png);
+    background-size: cover;
+    background-position: center;
+    color: white;
+
+    .title {
+        color: white;
+    }
+}

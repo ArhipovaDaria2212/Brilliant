@@ -1,0 +1,100 @@
+@use "./../../style/variables.scss";
+@use "./../../style/style.scss";
+
+.account {
+
+  padding: 50px 0 0;
+
+  &__title {
+    color: #40003E;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  .progress {
+    display: grid;
+    grid-template-columns: .6fr 1fr;
+    gap: 35px;
+    position: relative;
+
+    .calendar-container {
+      padding: 45px 0 0;
+    }
+
+    .achives {
+      position: relative;
+
+      &__title {
+        color: #D0CECE;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 24px;
+        padding-bottom: 20px;
+      }
+
+      &__slider {
+        //max-width: 700px;
+        overflow: hidden;
+
+        .slider {
+          position: relative;
+        }
+
+        .prev {
+          position: absolute;
+          width: 16px;
+          height: 27px;
+          left: -24px;
+          top: 200px;
+
+          background-image: url(./../../assets/icons/arrows/1.png);
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        .next {
+          position: absolute;
+          width: 16px;
+          height: 27px;
+          right: -20px;
+          top: 200px;
+
+          transform: rotate(180deg);
+
+          background-image: url(./../../assets/icons/arrows/1.png);
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+    }
+  }
+
+  .profile__courses {
+    padding: 34px 0 0;
+
+    &__title {
+      color: #D0CECE;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 24px;
+      padding: 0 0 10px 34px;
+    }
+
+    &__list {
+      padding: 16px 0 0;
+      @extend %flex-row;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+
+      max-height: 30vh;
+      overflow: scroll;
+      -ms-overflow-style: none;
+    }
+
+    &__list::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+}
