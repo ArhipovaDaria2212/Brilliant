@@ -83,6 +83,7 @@ export async function getModules(courseId) {
 export async function getLessons(moduleId) {
     try {
         const response = await axios.get(`/lessons/` + moduleId)
+        console.log(response)
         return response.data
     } catch (error) {
         throw error
