@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = '217.71.129.139:4189'
+axios.defaults.baseURL = 'http://217.71.129.139:4189'
 axios.defaults.headers.post["Content-Type"] = 'application/json'
 
 axios.interceptors.response.use(response => {
