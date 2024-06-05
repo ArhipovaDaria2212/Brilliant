@@ -9,6 +9,8 @@ import brilliant.security.user.UserDetailsImpl;
 import brilliant.services.IUserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -32,12 +34,15 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final JwtUtils jwtUtils;
 
+    static final Logger log =
+            LoggerFactory.getLogger(AuthController.class);
+
     @PostMapping("/register-user")
     public ResponseEntity<?> registerUser(@RequestBody User user){
         try{
             userService.registerUser(user);
+            log.info("REGISTRATION SUCCESSFUL");
             return ResponseEntity.ok("Registration successful!");
-
         }catch (UserAlreadyExistsException e){
             return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
         }

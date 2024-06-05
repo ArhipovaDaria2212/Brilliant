@@ -9,9 +9,7 @@ function AvatarSettings() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch()
-    }, [dispatch])
-    console.log("sujdghfv,sjd")
+    }, [])
 
     return (
         <div className='settings'>

@@ -20,15 +20,12 @@ function Course() {
 
     useEffect(() => {
         dispatch(fetchModules(course.id))
+        console.log(course.id)
     }, []);
 
     useEffect(() => {
-        dispatch(fetchLessons(activeModule.id))
+        if (activeModule.id) dispatch(fetchLessons(activeModule.id))
     }, [activeModule])
-
-    const icons = Array.from({ length: lessons.length }, (_, index) => (
-        <LessonIcon key={index} index={index} mode={"complete"} isLast={false} />
-    ));
 
     return (
         <div className='course'>
@@ -68,7 +65,9 @@ function Course() {
                 <div className="course__lessons">
                     <p className="course__lessons__title">{activeModule?.index}. {activeModule?.title}</p>
                     <div className="course__lessons__list">
-                        {icons}
+                        { lessons?.map((lesson, index) => (
+                            <LessonIcon key={index} index={index} mode={"complete"} isLast={false} />
+                        ))}
                     </div>
                 </div>
             </div>

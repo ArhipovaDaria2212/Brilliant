@@ -6,6 +6,7 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
 export async function registerUser(registration) {
     try {
         const response = await axios.post("/auth/register-user", registration)
+        console.log("FRONT SENT QUERY")
         return response.data
     } catch (error) {
         if (error.response && error.response.data) {

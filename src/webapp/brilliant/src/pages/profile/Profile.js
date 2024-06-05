@@ -22,13 +22,13 @@ function Profile() {
 
     useEffect(() => {
         dispatch(fetchCourses())
-    })
+    }, [])
 
     return (
         <div className='profile'>
             <Menu activeItem={activePage}/>
             <div className="profile__main">
-                <ProfileHeader activeItem={activePage}/>
+                <ProfileHeader/>
                 {activePage === PROFILE && <Account courses={courses} />}
                 {activePage === COURSES && <Courses courses={courses} />}
                 {activePage === SETTINGS && <AvatarSettings />}

@@ -3,10 +3,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import "./UserInfo.scss"
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setActivePage, SETTINGS} from "../../store/slices/pageSlice";
 
-function UserInfo({name, lastname, avatar, activePage}) {
+function UserInfo({name, lastname, avatar}) {
+    const activePage = useSelector(state => state.page.active)
 
     const dispatch = useDispatch();
 
