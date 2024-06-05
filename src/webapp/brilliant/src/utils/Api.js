@@ -2,6 +2,16 @@ import axios from "axios"
 import {storage} from "../config/firebase_config";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
+
+import io from 'socket.io-client';
+
+const socket = io('http://217.71.129.139:3000', {
+    withCredentials: true,
+    extraHeaders: {
+        "Access-Control-Allow-Origin": "http://217.71.129.139:4011"
+    }
+});
+
 /* This function register a new user */
 export async function registerUser(registration) {
     try {
