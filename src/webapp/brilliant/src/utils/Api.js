@@ -5,7 +5,7 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 import io from 'socket.io-client';
 
-const socket = io('http://172.17.7.203', {
+const socket = io('http://217.71.129.139', {
     withCredentials: true,
     extraHeaders: {
         "Access-Control-Allow-Origin": "http://217.71.129.139:4011"
