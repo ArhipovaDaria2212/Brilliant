@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {setActiveCourse} from "../../store/slices/courseSlice";
 
-function CourseItem({id, title, text, progress, hasStar, picture}) {
+function CourseItem({id, title, text, level, time, hasStar, picture}) {
 
     const [showDetails, setShowDetails] = React.useState(false);
     const dispatch = useDispatch();
@@ -29,7 +29,6 @@ function CourseItem({id, title, text, progress, hasStar, picture}) {
                     <p className="text">{ text }</p>
                 </div>
                 <div className="course_item__progress">
-                    <div className="progress__wrapper"><p className='progress'>{ progress }%</p></div>
                     <div className="favotite">
                         <img src={star} alt=""/>
                     </div>
@@ -39,9 +38,13 @@ function CourseItem({id, title, text, progress, hasStar, picture}) {
                 <div className="course_item__additional_info__wrapper">
                     <div className="course_item__additional_info">
                         <div className="course_item__info">Примерное время на прохождение
-                            курса: <span>3 месяца</span></div>
-                        <div className="course_item__info">Уровень: <span>для начинающих</span></div>
-                        <div className="course_item__info">Количество модулей: <span>21</span></div>
+                            курса: <span>{time} м</span></div>
+                        <div className="course_item__info">Уровень:
+                            {level==="start" && <span> для начинающих</span>}
+                            {level==="medium" && <span> средний</span>}
+                            {level==="hard" && <span> для продвинутых</span>}
+                        </div>
+                        {/*<div className="course_item__info">Количество модулей: <span>21</span></div>*/}
                     </div>
                     <div className="" onClick={() => toCourse(id)}>
                         <Link to={'/course'} className="course_item__start--btn">Начать</Link>

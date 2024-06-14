@@ -2,12 +2,8 @@ import React, {useEffect, useState} from 'react'
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 
 import picture from "./../../assets/login/1.jpg";
-import { useHistory } from 'react-router-dom';
 
 import "./Login.scss";
-import {request} from "../../config/axios_config";
-import axios from "axios";
-import AuthenticationService from "../../services/AuthenticationService";
 import {useAuth} from "../../auth/AuthProvider";
 import {loginUser} from "../../utils/Api";
 

@@ -15,9 +15,6 @@ import Course from "../../pages/course/Course";
 import Lesson from "../../pages/lesson/Lesson";
 
 function App() {
-
-    // const location = useLocation();
-
     return (
         <AuthProvider>
             <div className="App">
@@ -28,11 +25,7 @@ function App() {
                         <Route path='/auth' element={<Authorization/>}/>
                         <Route path='/additional' element={<AddInfo/>}/>
                         <Route path='/login' element={<Login/>}/>
-                        <Route path='/profile' element={
-                            // <RequireAuth>
-                                <Profile/>
-                            // </RequireAuth>
-                        }/>
+                        <Route path='/profile' element={<Profile/>}/>
                         <Route path='/course' element={<Course />} />
                         <Route path='/lesson' element={<Lesson />} />
                     </Routes>

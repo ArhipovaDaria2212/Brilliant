@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import brilliant.services.CourseService;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 @Slf4j
@@ -38,8 +39,10 @@ public class CoursesController {
     @GetMapping("")
     public ResponseEntity<List<Course>> getCourses() {
         try {
+            System.out.println("GOOD");
             return ResponseEntity.ok(courseService.getCourses());
         } catch (Exception e) {
+            System.out.println("BAD");
             return ResponseEntity.notFound().build();
         }
     }

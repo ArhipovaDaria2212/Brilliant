@@ -2,21 +2,32 @@ import axios from "axios"
 import {storage} from "../config/firebase_config";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
+const instance = axios.create({
+    baseURL: 'http://localhost:8080',
+});
 
-import io from 'socket.io-client';
-
-const socket = io('http://172.17.7.203', {
-    withCredentials: true,
-    extraHeaders: {
-        "Access-Control-Allow-Origin": "http://217.71.129.139:4011"
+instance.interceptors.response.use(response => {
+    return response;
+}, error => {
+    if (error.response?.status === 401) {
+        window.location.href = "/login";
     }
+
+    return Promise.reject(error);
+});
+
+instance.interceptors.request.use(request => {
+    const token = localStorage.getItem("token");
+    request.headers.authorization = 'Bearer ' + token
+    return request;
+}, error => {
+    return Promise.reject(error);
 });
 
 /* This function register a new user */
 export async function registerUser(registration) {
     try {
-        const response = await axios.post("/auth/register-user", registration)
-        console.log("FRONT SENT QUERY")
+        const response = await instance.post("/auth/register-user", registration)
         return response.data
     } catch (error) {
         if (error.response && error.response.data) {
@@ -30,7 +41,7 @@ export async function registerUser(registration) {
 /* This function login a registered user */
 export async function loginUser(login) {
     try {
-        const response = await axios.post("/auth/login", login)
+        const response = await instance.post("/auth/login", login)
         if (response.status >= 200 && response.status < 300) {
             return response.data
         } else {
@@ -45,7 +56,7 @@ export async function loginUser(login) {
 /*  This is function to get the user profile */
 export async function getUserProfile(userId, token) {
     try {
-        const response = await axios.get(`users/profile/${userId}`)
+        const response = await instance.get(`users/profile/${userId}`)
         return response.data
     } catch (error) {
         throw error
@@ -55,7 +66,7 @@ export async function getUserProfile(userId, token) {
 /* This is the function to delete a user */
 export async function deleteUser(userId) {
     try {
-        const response = await axios.delete(`/users/delete/${userId}`)
+        const response = await instance.delete(`/users/delete/${userId}`)
         return response.data
     } catch (error) {
         return error.message
@@ -65,7 +76,7 @@ export async function deleteUser(userId) {
 /* This is the function to get a single user */
 export async function getUser(userId) {
     try {
-        const response = await axios.get(`/users/${userId}`)
+        const response = await instance.get(`/users/${userId}`)
         return response.data
     } catch (error) {
         throw error
@@ -75,7 +86,7 @@ export async function getUser(userId) {
 /* This is the function to get courses */
 export async function getCourses() {
     try {
-        const response = await axios.get(`/courses`)
+        const response = await instance.get(`/courses`)
         return response.data
     } catch (error) {
         throw error
@@ -84,7 +95,7 @@ export async function getCourses() {
 
 export async function getModules(courseId) {
     try {
-        const response = await axios.get(`/modules/` + courseId)
+        const response = await instance.get(`/modules/` + courseId)
         return response.data
     } catch (error) {
         throw error
@@ -93,8 +104,7 @@ export async function getModules(courseId) {
 
 export async function getLessons(moduleId) {
     try {
-        const response = await axios.get(`/lessons/` + moduleId)
-        console.log(response)
+        const response = await instance.get(`/lessons/` + moduleId)
         return response.data
     } catch (error) {
         throw error

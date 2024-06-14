@@ -20,7 +20,6 @@ function Course() {
 
     useEffect(() => {
         dispatch(fetchModules(course.id))
-        console.log(course.id)
     }, []);
 
     useEffect(() => {
@@ -37,7 +36,6 @@ function Course() {
                         <p className="course__info__text">{course.description}</p>
                     </div>
                     <div className="course_item__progress">
-                        <div className="progress__wrapper"><p className='progress'>75%</p></div>
                         <div className="favotite">
                             <img src={star} alt=""/>
                         </div>

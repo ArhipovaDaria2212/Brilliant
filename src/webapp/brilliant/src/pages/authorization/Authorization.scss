@@ -3,6 +3,12 @@
 
 .authorization {
 
+    &__error {
+        text-align: center;
+        padding: 0 0 10px;
+        color: #ff305a;
+    }
+
     @extend %flex-row;
     gap: 35px;
     padding: 15px;
@@ -21,7 +27,7 @@
         font-weight: 700;
         line-height: 48px;
         max-width: 645px;
-        padding: 0 0 120px;
+        padding: 0 0 50px;
     }
 
     .form {
@@ -47,6 +53,12 @@
             background: #E2ABFF;
             color: #FFF;
             font-weight: 600;
+            transition: all .2s ease;
+        }
+
+        .btn:hover {
+            background: #cd71ff;
+            transition: all .2s ease;
         }
 
         .privacy {

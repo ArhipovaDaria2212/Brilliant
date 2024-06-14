@@ -17,7 +17,7 @@ function Authorization() {
     })
 
     const [errorMessage, setErrorMessage] = useState("")
-    const [successMessage, setSuccessMessage] = useState("")
+    const navigate = useNavigate()
 
     const handleInputChange = (e) => {
         setRegistration({ ...registration, [e.target.name]: e.target.value })
@@ -27,16 +27,14 @@ function Authorization() {
         e.preventDefault()
         try {
             const result = await registerUser(registration)
-            setSuccessMessage(result)
             setErrorMessage("")
             setRegistration({ firstName: "", lastName: "", email: "", password: "" })
+            navigate("/profile", { replace: true })
         } catch (error) {
-            setSuccessMessage("")
-            setErrorMessage(`Registration error : ${error.message}`)
+            setErrorMessage(`${error.message}`)
         }
         setTimeout(() => {
             setErrorMessage("")
-            setSuccessMessage("")
         }, 5000)
     }
 
@@ -45,8 +43,7 @@ function Authorization() {
             <img src={picture} className='auth__img' alt='' />
             <div className="auth__info">
                 <h1 className="title">Создайте бесплатную учетную запись, чтобы найти свой индивидуальный путь обучения</h1>
-                {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
-                {successMessage && <p className="alert alert-success">{successMessage}</p>}
+                {errorMessage && <p className="authorization__error">{errorMessage}</p>}
                 <form method="post" className="form" onSubmit={handleRegistration}>
                     <input className="input" id="email"
                            name="email"

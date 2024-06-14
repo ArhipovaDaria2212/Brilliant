@@ -20,12 +20,21 @@ public class Course {
     @Column(name = "icon", length = 511)
     private String icon;
 
+    @Column(name = "time")
+    private int time;
+
+    @Column(name = "level")
+    @Enumerated(EnumType.STRING)
+    private CourseLevel level;
+
     public Course() {
     }
 
-    public Course(String title, String description, String iconSrc) {
+    public Course(String title, String description, String iconSrc, int time, CourseLevel level) {
         this.title = title;
         this.description = description;
         this.icon = iconSrc;
+        this.time = time;
+        this.level = level;
     }
 }

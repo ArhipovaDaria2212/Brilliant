@@ -33,11 +33,14 @@ export function Courses({ courses }) {
             <div className="courses__items">
                 { courses?.map(course => (
                     <CourseItem
+                        key={course.id}
                         id={course.id}
                         title={course.title}
                         text={course.description}
                         progress={57}
                         picture={course.icon}
+                        level={course.level}
+                        time={course.time}
                     />
                 ))}
             </div>

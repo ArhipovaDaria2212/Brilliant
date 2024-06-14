@@ -23,7 +23,7 @@ function AboutUs() {
 
 
     useEffect(() => {
-        axios.get('http://217.71.129.139:4189/reviews?category=' + filter + "&page=" + page)
+        axios.get('http://localhost:8080/reviews?category=' + filter + "&page=" + page)
             .then(response => {
                 setReviewData(response.data);
             })

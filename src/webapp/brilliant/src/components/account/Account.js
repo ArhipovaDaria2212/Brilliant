@@ -8,6 +8,7 @@ import "./Account.scss";
 import './../../style/calendar.scss';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import pic from "./../../assets/achives/close.svg";
+import img from "./../../assets/profile/study.png";
 
 import AchiveCard from '../../components/achiveCard/AchiveCard';
 import CourseItem from '../../components/courseItem/CourseItem';
@@ -20,6 +21,7 @@ function Account({ courses }) {
             <h1 className='account__title'>Профиль</h1>
             <div className="progress">
                 <div className='calendar-container'>
+                    <img src={img}/>
                     {/*<Calendar value={date}*/}
                     {/*          showNeighboringMonth={false}>*/}
                     {/*</Calendar>*/}
@@ -98,11 +100,14 @@ function Account({ courses }) {
                 <div className="profile__courses__list">
                     { courses?.map(course => (
                         <CourseItem
+                            key={course.id}
                             id={course.id}
                             title={course.title}
                             text={course.description}
                             progress={57}
                             picture={course.icon}
+                            level={course.level}
+                            time={course.time}
                         />
                     ))}
                 </div>

@@ -4,6 +4,7 @@
 .search_panel {
     @extend %flex-row;
     gap: 28px;
+    display: none;
 
     form {
         box-sizing: border-box;

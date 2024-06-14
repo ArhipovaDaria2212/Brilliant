@@ -22,11 +22,11 @@ function Module({props}) {
                 <div className="module__title">{props.title}</div>
                 <p className="module__text">{props.description}</p>
             </div>
-            <div className="module__progress">
-                <p className="module__progress__inner">
-                    100%
-                </p>
-            </div>
+            {/*<div className="module__progress">*/}
+            {/*    <p className="module__progress__inner">*/}
+            {/*        100%*/}
+            {/*    </p>*/}
+            {/*</div>*/}
         </div>
 
     )
