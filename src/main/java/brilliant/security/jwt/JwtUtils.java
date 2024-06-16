@@ -23,7 +23,7 @@ public class JwtUtils {
     private String jwtSecret;
 
     @Value("${auth.token.expirationInMils}")
-    private int jwtExpirationMs;
+    private int jwtExpirationMs = 8640000;
 
     public String generateJwtTokenForUser(Authentication authentication){
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();

@@ -13,7 +13,7 @@ function ProfileHeader() {
 
     useEffect(() => {
         dispatch(fetchUserData())
-    }, []);
+    },[]);
 
     return (
         <div className="profile__header">

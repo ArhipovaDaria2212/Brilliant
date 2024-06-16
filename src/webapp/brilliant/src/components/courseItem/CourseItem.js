@@ -1,13 +1,14 @@
 import React from 'react'
 
-import star from "./../../assets/icons/stars/1.png"
+import star from "./../../assets/icons/stars/star.svg"
+import star_empty from "./../../assets/icons/stars/star_empty.svg"
 
 import "./CourseItem.scss"
 import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setActiveCourse} from "../../store/slices/courseSlice";
 
-function CourseItem({id, title, text, level, time, hasStar, picture}) {
+function CourseItem(course) {
 
     const [showDetails, setShowDetails] = React.useState(false);
     const dispatch = useDispatch();
@@ -16,21 +17,23 @@ function CourseItem({id, title, text, level, time, hasStar, picture}) {
         setShowDetails(!showDetails);
     };
 
-    const toCourse = (course) => {
-        dispatch(setActiveCourse(course))
+    const toCourse = (courseId) => {
+        dispatch(setActiveCourse(courseId))
     }
 
     return (
         <div className="course_item__wrapper" onClick={toggleDetails}>
             <div className='course_item' >
-                <img src={picture} alt="icon" className="course_item--img"/>
+                <img src={course.picture} alt="icon" className="course_item--img"/>
                 <div className="course_item__info">
-                    <h3 className="title">{ title }</h3>
-                    <p className="text">{ text }</p>
+                    <h3 className="title">{ course.title }</h3>
+                    <p className="text">{ course.text }</p>
                 </div>
                 <div className="course_item__progress">
-                    <div className="favotite">
-                        <img src={star} alt=""/>
+                    <div className="favorite__active">
+                        {/*{favoriteCourses.includes(course) && <img src={star} alt=""/>}*/}
+                        {/*{!favoriteCourses.includes(course) && <img src={star_empty} alt=""/>}*/}
+
                     </div>
                 </div>
             </div>
@@ -38,15 +41,15 @@ function CourseItem({id, title, text, level, time, hasStar, picture}) {
                 <div className="course_item__additional_info__wrapper">
                     <div className="course_item__additional_info">
                         <div className="course_item__info">Примерное время на прохождение
-                            курса: <span>{time} м</span></div>
+                            курса: <span>{course.time} м</span></div>
                         <div className="course_item__info">Уровень:
-                            {level==="start" && <span> для начинающих</span>}
-                            {level==="medium" && <span> средний</span>}
-                            {level==="hard" && <span> для продвинутых</span>}
+                            {course.level==="start" && <span> для начинающих</span>}
+                            {course.level==="medium" && <span> средний</span>}
+                            {course.level==="hard" && <span> для продвинутых</span>}
                         </div>
                         {/*<div className="course_item__info">Количество модулей: <span>21</span></div>*/}
                     </div>
-                    <div className="" onClick={() => toCourse(id)}>
+                    <div className="" onClick={() => toCourse(course.id)}>
                         <Link to={'/course'} className="course_item__start--btn">Начать</Link>
                     </div>
                 </div>

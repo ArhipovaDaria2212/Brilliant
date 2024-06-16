@@ -12,13 +12,13 @@ import {Courses} from "../courses/Courses";
 import { fetchCourses } from '../../store/slices/courseSlice'
 import {COURSES, PROFILE, SETTINGS} from "../../store/slices/pageSlice";
 import AvatarSettings from "../../components/avatarSettings/AvatarSettings";
+import {fetchAchives} from "../../store/slices/achiveSlice";
 
 
 function Profile() {
-
-    const courses = useSelector(state => state.course.courses)
-    const activePage = useSelector(state => state.page.active)
     const dispatch = useDispatch()
+    const activePage = useSelector(state => state.page.active)
+    const courses = useSelector(state => state.course.courses);
 
     useEffect(() => {
         dispatch(fetchCourses())
@@ -29,8 +29,8 @@ function Profile() {
             <Menu activeItem={activePage}/>
             <div className="profile__main">
                 <ProfileHeader/>
-                {activePage === PROFILE && <Account courses={courses} />}
-                {activePage === COURSES && <Courses courses={courses} />}
+                {activePage === PROFILE && <Account courses={courses}/>}
+                {activePage === COURSES && <Courses courses={courses}/>}
                 {activePage === SETTINGS && <AvatarSettings />}
             </div>
         </div>

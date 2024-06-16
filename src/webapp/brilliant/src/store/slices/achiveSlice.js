@@ -1,48 +1,42 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getCourses } from "../../utils/Api"
+import {getAchives} from "../../utils/Api"
 
 export const achiveSlice = createSlice({
-    name: 'course',
+    name: 'achives',
     initialState: {
-        courses: [],
+        achives: [],
         status: 'idle',
         error: null,
-        activeCourse: JSON.parse(localStorage.getItem("active-course"))
     },
     reducers: {
-        getCoursesStart: state => {
+        getAchivesStart: state => {
             state.status = 'loading'
         },
-        getCoursesSuccess: (state, action) => {
+        getAchivesSuccess: (state, action) => {
             state.status = 'succeeded'
-            state.courses = action.payload
+            state.achives = action.payload
         },
-        getCoursesFailure: (state, action) => {
+        getAchivesFailure: (state, action) => {
             state.status = 'failed'
             state.error = action.payload
-        },
-        setActiveCourse: (state, action) => {
-            state.activeCourse = state.courses.find(course => course.id === action.payload)
-            localStorage.setItem("active-course", JSON.stringify(state.activeCourse))
         },
     },
 })
 
-export const { getCoursesStart,
-    getCoursesSuccess,
-    getCoursesFailure,
-    setActiveCourse } = courseSlice.actions
+export const { getAchivesStart,
+    getAchivesSuccess,
+    getAchivesFailure} = achiveSlice.actions
 
-export const fetchCourses = () => async dispatch => {
+export const fetchAchives = () => async dispatch => {
     try {
-        dispatch(getCoursesStart())
-        getCourses()
+        dispatch(getAchivesStart())
+        getAchives()
             .then((res) => {
-                dispatch(getCoursesSuccess(res))
+                dispatch(getAchivesSuccess(res))
             })
     } catch (error) {
-        dispatch(getCoursesFailure("Ошибка в получении данных"))
+        dispatch(getAchivesFailure("Ошибка в получении данных о достижениях"))
     }
 }
 
-export default courseSlice.reducer
+export default achiveSlice.reducer

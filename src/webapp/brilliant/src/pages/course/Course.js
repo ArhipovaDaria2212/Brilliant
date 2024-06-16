@@ -37,7 +37,7 @@ function Course() {
                     </div>
                     <div className="course_item__progress">
                         <div className="favotite">
-                            <img src={star} alt=""/>
+                            {/*<img src={star} alt=""/>*/}
                         </div>
                     </div>
                 </div>

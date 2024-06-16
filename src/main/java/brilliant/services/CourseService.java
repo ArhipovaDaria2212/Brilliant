@@ -1,8 +1,10 @@
 package brilliant.services;
 
 import brilliant.DAO.CourseDAO;
+import brilliant.DAO.repository.UserRepository;
 import brilliant.DTO.CourseDTO;
 import brilliant.models.Course;
+import brilliant.models.User;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +14,11 @@ import java.util.List;
 public class CourseService {
 
     private final CourseDAO courseDAO;
+    private final UserRepository userRepository;
 
-    public CourseService(CourseDAO courseDAO) {
+    public CourseService(CourseDAO courseDAO, UserRepository userRepository) {
         this.courseDAO = courseDAO;
+        this.userRepository = userRepository;
     }
 
     @Transactional

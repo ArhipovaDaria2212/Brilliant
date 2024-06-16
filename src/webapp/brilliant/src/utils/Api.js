@@ -10,7 +10,7 @@ instance.interceptors.response.use(response => {
     return response;
 }, error => {
     if (error.response?.status === 401) {
-        window.location.href = "/login";
+        // window.location.href = "/login";
     }
 
     return Promise.reject(error);
@@ -38,6 +38,8 @@ export async function registerUser(registration) {
     }
 }
 
+//http://localhost:8080/achive
+
 /* This function login a registered user */
 export async function loginUser(login) {
     try {
@@ -60,6 +62,20 @@ export async function getUserProfile(userId, token) {
         return response.data
     } catch (error) {
         throw error
+    }
+}
+
+/* This function get achives */
+export async function getAchives() {
+    try {
+        const response = await instance.get("/achive")
+        return response.data
+    } catch (error) {
+        if (error.response && error.response.data) {
+            throw new Error(error.response.data)
+        } else {
+            throw new Error(`Get achive broken : ${error.message}`)
+        }
     }
 }
 

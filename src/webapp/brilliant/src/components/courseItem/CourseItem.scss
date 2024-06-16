@@ -68,10 +68,10 @@
             transform: translateY(15px);
         }
 
-        .favotite {
-            width: 32px;
-            height: 32px;
-        }
+    }
+    .favorite__active {
+        width: 60px;
+        height: 60px;
     }
 
     &__additional_info {

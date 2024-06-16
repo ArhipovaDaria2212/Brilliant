@@ -6,6 +6,7 @@ import picture from "./../../assets/authorization/auth.jpg"
 import "./Authorization.scss"
 import AuthenticationService from "../../services/AuthenticationService";
 import {registerUser} from "../../utils/Api";
+import {useAuth} from "../../auth/AuthProvider";
 
 function Authorization() {
 
@@ -17,7 +18,7 @@ function Authorization() {
     })
 
     const [errorMessage, setErrorMessage] = useState("")
-    const navigate = useNavigate()
+    const auth = useAuth()
 
     const handleInputChange = (e) => {
         setRegistration({ ...registration, [e.target.name]: e.target.value })
@@ -27,9 +28,8 @@ function Authorization() {
         e.preventDefault()
         try {
             const result = await registerUser(registration)
-            setErrorMessage("")
+            setErrorMessage(result)
             setRegistration({ firstName: "", lastName: "", email: "", password: "" })
-            navigate("/profile", { replace: true })
         } catch (error) {
             setErrorMessage(`${error.message}`)
         }
@@ -48,7 +48,7 @@ function Authorization() {
                     <input className="input" id="email"
                            name="email"
                            type="email"
-                           placeholder="email"
+                           placeholder="Адрес электронной почты"
                            value={registration.email}
                            onChange={handleInputChange}/>
                     <input className="input" id="firstName"
@@ -68,7 +68,7 @@ function Authorization() {
                            name="password"
                            value={registration.password}
                            onChange={handleInputChange}
-                           placeholder="пароль"/>
+                           placeholder="Пароль"/>
                     <button type="submit" className="btn">Зарегистрироваться</button>
                     <p className="privacy">При нажатии Sign up, я соглашаюсь с Brilliant's Terms и Privacy Policy</p>
                 </form>

@@ -2,8 +2,13 @@ package brilliant.controllers;
 
 import brilliant.DTO.CourseDTO;
 import brilliant.models.Course;
+import brilliant.models.User;
+import brilliant.services.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.connector.Request;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import brilliant.services.CourseService;
 
@@ -15,9 +20,11 @@ import java.util.logging.Logger;
 @RequestMapping("/courses")
 public class CoursesController {
     private final CourseService courseService;
+    private final UserService userService;
 
-    public CoursesController(CourseService courseService) {
+    public CoursesController(CourseService courseService, UserService userService) {
         this.courseService = courseService;
+        this.userService = userService;
     }
 
     @PostMapping
@@ -39,10 +46,8 @@ public class CoursesController {
     @GetMapping("")
     public ResponseEntity<List<Course>> getCourses() {
         try {
-            System.out.println("GOOD");
             return ResponseEntity.ok(courseService.getCourses());
         } catch (Exception e) {
-            System.out.println("BAD");
             return ResponseEntity.notFound().build();
         }
     }

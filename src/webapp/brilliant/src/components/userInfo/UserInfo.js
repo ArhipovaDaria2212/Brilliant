@@ -9,9 +9,6 @@ import {PROFILE, setActivePage, SETTINGS} from "../../store/slices/pageSlice";
 function UserInfo({name, lastname, avatar}) {
     const activePage = useSelector(state => state.page.active)
 
-    const dispatch = useDispatch();
-    const navigate = useNavigate()
-
     return (
         <div className='user_info'>
             <div className="user_info--img">

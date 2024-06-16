@@ -20,7 +20,7 @@ function AchiveCard({slide}) {
     )
     else return (
         <div className='achive_card'>
-            <p className="count">0/10</p>
+            <p className="count">0/{slide.toAchive}</p>
             <img src={pic_close} alt="" className="achive_card--img"/>
             <div className="achive_card__info">
                 <h2 className='title'>{slide && slide.title}</h2>

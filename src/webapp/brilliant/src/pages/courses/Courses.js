@@ -16,19 +16,19 @@ export function Courses({ courses }) {
         <div className="courses">
             <h1 className='courses__title'>Курсы</h1>
             <div className="courses__filters__buttons">
-                <button onClick={() => handleFilter('')}
-                        className={`courses__filters__buttons--btn ${filter === '' ? 'active' : ''}`}>Все
-                </button>
-                <button onClick={() => handleFilter('студент')}
-                        className={`courses__filters__buttons--btn ${filter === 'студент' ? 'active' : ''}`}>Недавние
-                    курсы
-                </button>
-                <button onClick={() => handleFilter('учитель')}
-                        className={`courses__filters__buttons--btn ${filter === 'учитель' ? 'active' : ''}`}>Мои курсы
-                </button>
-                <button onClick={() => handleFilter('профессионал')}
-                        className={`courses__filters__buttons--btn ${filter === 'профессионал' ? 'active' : ''}`}>Избранное
-                </button>
+                {/*<button onClick={() => handleFilter('')}*/}
+                {/*        className={`courses__filters__buttons--btn ${filter === '' ? 'active' : ''}`}>Все*/}
+                {/*</button>*/}
+                {/*<button onClick={() => handleFilter('студент')}*/}
+                {/*        className={`courses__filters__buttons--btn ${filter === 'студент' ? 'active' : ''}`}>Недавние*/}
+                {/*    курсы*/}
+                {/*</button>*/}
+                {/*<button onClick={() => handleFilter('учитель')}*/}
+                {/*        className={`courses__filters__buttons--btn ${filter === 'учитель' ? 'active' : ''}`}>Мои курсы*/}
+                {/*</button>*/}
+                {/*<button onClick={() => handleFilter('профессионал')}*/}
+                {/*        className={`courses__filters__buttons--btn ${filter === 'профессионал' ? 'active' : ''}`}>Избранное*/}
+                {/*</button>*/}
             </div>
             <div className="courses__items">
                 { courses?.map(course => (
